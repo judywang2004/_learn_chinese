@@ -1,0 +1,127 @@
+https://www.linkedin.com/in/judy-wang-a8b19b5/
+https://github.com/judywang2004/fizzbuzz
+Here is the radio with instructions how I am running it.
+https://www.screencast.com/t/3Wwu5CskFuWU
+
+SME to resolve any technical issue/blocker. trouble shooting
+Exposure to migration/upgradation will be preferred
+
+Please use this Google doc to code during your interview. To free your hands for coding, we recommend that you use a headset or a phone with speaker option.
+
+Hi 
+
+Given an array of doubles, get the count of all pairs in the array where the pair’s sum is less than or equal to a given target sum.
+
+0,1,2,3,4,5,5,9 
+target sum = 7;
+1+4=2+3
+expected results :
+0,1 / 0,2
+
+double[] input={0,1,2,3,4,5,5,9};
+double target = 7;
+
+public static int pairs(double[] doubles){ 
+      doubles=input;
+double temp=0;
+int count=0;
+
+for ( int i = 0; i< doubles.length ; i++){
+   for (int j=i+1; j<doubles.length ; j++){
+           temp = doubles[i]+doubles[i+1];
+         if ( temp<=target){    
+               count++         
+               System.out.println(doubles[i]+ “,”+ doubles[j]);         
+  	   }      
+
+    }
+}
+return count;
+}
+
+public static List<String> pairSumFastest(int[] data, int sum) {
+    ArrayList<String> results = new ArrayList<String>();
+
+    int low = 0;
+    int high = data.length - 1;
+    while (low < high) {
+        while (low < high && data[low] + data[high] < sum) {
+            low++;
+        }
+        while (low < high && data[low] + data[high] > sum) {
+            high--;
+        }
+        if (low < high) {
+            results.add( data[low] + " and " + data[high]);
+            low++;
+            high--;
+        }
+    }
+
+    return results;
+}
+
+Implement the data model for a company. I want it to capture manager-employee relationships and salaries for all employees.
+1 , emp1 , emp1
+2 , emp2 , emp1
+3 , emp3 , emp2
+4,  emp4,  emp3
+
+employee (emp_id, name,managerName)
+Salary (salary)
+emp_salary (emp_id,salary)
+
+select emp_id, name , manager, salary
+from employee 
+where managerName = ‘emp3’
+
+
+1. Counting Anagrams. From 1point 3acres bbs
+given 2 strings A and B, find the number of anagram occurrances of B in A,
+output the number, following by the start index of each anagram occurrance.
+For example:. From 1point 3acres bbs
+abdcefgicdba adca
+Output:
+0 8
+题目是照搬地里面其他人的，反正大概就是这个意思。。。
+2. Find the min steps of maze
+意思是说有一个M*N的maze，0代表可以通过，1代表不可以通过，然后给你一个出口（x,y），找从（0,0）到出口的最少steps，如果找不到path就返回-1
+
+
+所谓 anagram, 就是两个词所用的字母及其个数都是一样的，但是，字母的位置不一样。比如 abcc 和 cbca 就是 anagram. 判断的方法比较简单，先把单个字母（字符）转成整数，然后利用了hashtable+计数器的原理进行判断。
+[java] view plain copy
+public static boolean anagrams(String a, String b) {  
+          
+        if (a.length() != b.length()) return false;  
+        int letters[] = new int[256];  
+          
+        //initialization  
+        for (int i = 0; i < letters.length; i++) {  
+            letters[i] = 0;  
+        }  
+          
+        //process the string a  
+        for (char c : a.toCharArray()) {  
+            ++letters[c];   
+        }  
+          
+        //if the char appears in string b, decrease the corresponding number of counts.  
+        for (char c : b.toCharArray()) {  
+            if (letters[c] == 0) {  
+                return false;  
+            }  
+            --letters[c];  
+        }  
+          
+        //if string a and b are anagrams, all the values in array letters should be 0  
+        for (int i = 0; i < letters.length; i++) {  
+            if (letters[i] != 0) {  
+                return false;  
+            }  
+        }     
+        return true;      
+    }  
+
+	Sorting: bubble sort, quicksort, merge sort
+Search: linear search, binary search
+Data structures: linked list, hash table, array, tree, binary search tree, stack, queue
