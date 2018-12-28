@@ -6,11 +6,271 @@ https://www.screencast.com/t/3Wwu5CskFuWU
 SME to resolve any technical issue/blocker. trouble shooting
 Exposure to migration/upgradation will be preferred
 
-Please use this Google doc to code during your interview. To free your hands for coding, we recommend that you use a headset or a phone with speaker option.
+data structures (linked list, hash map, binary tree, binary search tree, heap, array), algorithms (binary search, hashing, dynamic programming, sorting), and language-specific syntax and libraries (like sort, lambda for Python, appending, indexing).
 
-Hi 
+1:
+ Given a array/list of strings and print out the list of words which is repeated.
+e.g: input :  a,b,c,d,e, a,c, e.
+output: a,c,e
 
-Given an array of doubles, get the count of all pairs in the array where the pair’s sum is less than or equal to a given target sum.
+M1: http://www.java2novice.com/java-interview-programs/max-repeated-words-file/
+public Map<String, Integer> getWordCount(String fileName){
+ 
+        FileInputStream fis = null;
+        DataInputStream dis = null;
+        BufferedReader br = null;
+        Map<String, Integer> wordMap = new HashMap<String, Integer>();
+        try {
+            fis = new FileInputStream(fileName);
+            dis = new DataInputStream(fis);
+            br = new BufferedReader(new InputStreamReader(dis));
+            String line = null;
+            while((line = br.readLine()) != null){
+                StringTokenizer st = new StringTokenizer(line, " ");
+                while(st.hasMoreTokens()){
+                    String tmp = st.nextToken().toLowerCase();
+                    if(wordMap.containsKey(tmp)){
+                        wordMap.put(tmp, wordMap.get(tmp)+1);
+                    } else {
+                        wordMap.put(tmp, 1);
+                    }
+                }
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally{
+            try{if(br != null) br.close();}catch(Exception ex){}
+        }
+        return wordMap;
+    }
+     
+    public List<Entry<String, Integer>> sortByValue(Map<String, Integer> wordMap){
+         
+        Set<Entry<String, Integer>> set = wordMap.entrySet();
+        List<Entry<String, Integer>> list = new ArrayList<Entry<String, Integer>>(set);
+        Collections.sort( list, new Comparator<Map.Entry<String, Integer>>()
+        {
+            public int compare( Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2 )
+            {
+                return (o2.getValue()).compareTo( o1.getValue() );
+            }
+        } );
+        return list;
+    }
+     
+	 
+	 M2:
+	 public class DuplicateWords {
+7
+     
+8
+    public static void main(String[] args) {
+9
+        System.out.print("Enter string to analyse:");
+10
+        Scanner sn = new Scanner(System.in);
+11
+        String input = sn.nextLine();
+12
+         
+13
+        // first let us split string into words
+14
+        String[] words = input.split(" ");
+15
+         
+16
+        // adds all words into a map
+17
+        // we also check whether the word is already in map!
+18
+        Map<String,String> wordMap = new HashMap<String,String>();
+19
+        for(int i=0;i<words.length;i++) {
+20
+            String word = words[i].toUpperCase(); // for case insensitive comparison
+21
+            if(wordMap.get(word)!=null) {
+22
+                // we found a duplicated word!
+23
+                System.out.println("Duplicated/Repeated word:"+word);
+24
+            }else {
+25
+                wordMap.put(word, word);
+26
+            }
+27
+        }
+28
+    }  
+29
+}
+
+
+M3:
+import java.util.HashMap;
+2
+import java.util.Map;
+3
+import java.util.Scanner;
+4
+ 
+5
+// How to find repeated/duplicated words in a string using Java
+6
+public class DuplicateWords2 {
+7
+     
+8
+    public static void main(String[] args) {
+9
+        System.out.print("Enter string to analyse:");
+10
+        Scanner sn = new Scanner(System.in);
+11
+        String input = sn.nextLine();
+12
+         
+13
+        // first let us split string into words
+14
+        String[] words = input.split(" ");
+15
+         
+16
+        // adds all words into a map
+17
+        // we also check whether the word is already in map!
+18
+        Map<String,String> wordMap = new HashMap<String,String>();               
+19
+        Map<String,String> printedMap = new HashMap<String,String>();
+20
+ 
+21
+        for(int i=0;i<words.length;i++) {
+22
+            String word = words[i].toUpperCase(); // for case insensitive comparison
+23
+            if(wordMap.get(word)!=null) {
+24
+                // we found a duplicated word!
+25
+                if(printedMap.get(word)==null) { // first check if it is printed already!
+26
+                    System.out.println("Duplicated/Repeated word:"+word);
+27
+                    printedMap.put(word, word);
+28
+                }
+29
+            }else {
+30
+                wordMap.put(word, word);
+31
+            }
+32
+        }
+33
+    }
+34
+     
+35M4:
+//Program to count repeated words in string
+public class CountWords 
+{
+
+	public static void main(String[] args)
+	{
+		String input="Welcome to Java Session Session Session"; 		//Input String	
+		String[] words=input.split(" ");	//Split the word from String
+		int wrc=1;							//Variable for getting Repeated word count
+		
+		for(int i=0;i<words.length;i++)		//Outer loop for Comparison		
+		{
+			for(int j=i+1;j<words.length;j++)	//Inner loop for Comparison
+			{
+				
+			if(words[i].equals(words[j]))	//Checking for both strings are equal
+				{
+					wrc=wrc+1;				//if equal increment the count
+					words[j]="0";			//Replace repeated words by zero
+				}
+			}
+			if(words[i]!="0")
+			System.out.println(words[i]+"--"+wrc);	//Printing the word along with count
+			wrc=1;
+			
+	     }  
+			
+	}
+
+}
+
+}
+
+M5:
+public class DuplicateWordSearcher {
+@SuppressWarnings("unchecked")
+public static void main(String[] args) {
+
+    String text = "a r b k c d se f g a d f s s f d s ft gh f ws w f v x s g h d h j j k f sd j e wed a d f";
+
+    List<String> list = Arrays.asList(text.split(" "));
+
+    Set<String> uniqueWords = new HashSet<String>(list);
+    for (String word : uniqueWords) {
+        System.out.println(word + ": " + Collections.frequency(list, word));
+    }
+}
+
+M6:
+import java.util.*;
+
+public class Genric<E>
+{
+    public static void main(String[] args) 
+    {
+        Map<String, Integer> unique = new LinkedHashMap<String, Integer>();
+        for (String string : "House, House, House, Dog, Dog, Dog, Dog".split(", ")) {
+            if(unique.get(string) == null)
+                unique.put(string, 1);
+            else
+                unique.put(string, unique.get(string) + 1);
+        }
+        String uniqueString = join(unique.keySet(), ", ");
+        List<Integer> value = new ArrayList<Integer>(unique.values());
+
+        System.out.println("Output = " + uniqueString);
+        System.out.println("Values = " + value);
+
+    }
+
+    public static String join(Collection<String> s, String delimiter) {
+        StringBuffer buffer = new StringBuffer();
+        Iterator<String> iter = s.iterator();
+        while (iter.hasNext()) {
+            buffer.append(iter.next());
+            if (iter.hasNext()) {
+                buffer.append(delimiter);
+            }
+        }
+        return buffer.toString();
+    }
+}
+New String is Output = House, Dog
+
+Int array (or rather list) Values = [3, 4] (you can use List::toArray) for getting an array.
+
+Posted in Java category | No Comments
+
+
+
+2: Given an array of doubles, get the count of all pairs in the array where the pair’s sum is less than or equal to a given target sum.
 
 0,1,2,3,4,5,5,9 
 target sum = 7;
@@ -124,4 +384,7 @@ public static boolean anagrams(String a, String b) {
 
 	Sorting: bubble sort, quicksort, merge sort
 Search: linear search, binary search
-Data structures: linked list, hash table, array, tree, binary search tree, stack, queue
+Data structures: linked list, hash table, array, tree, binary search tree, stack, queue,set
+
+One Google question I had was related to file-system directories, and how to traverse them (hint: recursion). I solved that relatively quickly, and the interviewer asked how to identify a missing file in that directory
+
