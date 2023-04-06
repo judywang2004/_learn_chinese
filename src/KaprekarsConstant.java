@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-class Test {
+class KaprekarsConstant {
     public static int KaprekarsConstant(int num) {
         int diff = 0, count = 0;
         while (diff != 6174) {

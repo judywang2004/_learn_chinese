@@ -25,10 +25,11 @@ public class ReverseNumber {
 		
 		while(n!=0){
 			reverse= reverse*10;
-			System.out.println("reversing.. "+reverse);
+			System.out.println("reversing1.. "+reverse); //0
 			reverse = reverse+n%10;
-			System.out.println("reversing.. "+reverse);
+			System.out.println("reversing2.. "+reverse); //5
 			n=n/10;
+			System.out.println("reversing3 n = "+n); //1234
 		}
 		
 		System.out.println("reversed number is "+reverse);
@@ -36,3 +37,23 @@ public class ReverseNumber {
 	}
 
 }
+
+/**
+ * Enter a number to reverse
+reversing1.. 0
+reversing2.. 5
+reversing3 n = 1234
+reversing1.. 50
+reversing2.. 54
+reversing3 n = 123
+reversing1.. 540
+reversing2.. 543
+reversing3 n = 12
+reversing1.. 5430
+reversing2.. 5432
+reversing3 n = 1
+reversing1.. 54320
+reversing2.. 54321
+reversing3 n = 0
+reversed number is 54321
+ */

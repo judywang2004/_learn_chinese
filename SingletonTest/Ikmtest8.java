@@ -45,6 +45,7 @@ public class Ikmtest8 {
  Consumer<String> c= x->System.out.print(x.toLowerCase());
  Consumer<String> d=x->System.out.print(x.toUpperCase());
  c.andThen(d).accept(i.get()); //return carCAR
+ System.out.println();
  c.equals(d); //--return false
 // System.out.println(c.andThen(d).accept("t"));//compile error
  c.andThen(d).accept("i.get()"); //return carCARi.get()I.GET()
@@ -64,7 +65,7 @@ System.out.println(sb.toString());
 sb.delete(2, 4);
 System.out.println(sb.toString());
 String s = sb.substring(1, 5);
-System.out.println(s);
+System.out.println(s); //uFFE
 
 System.out.println("-----Predict----");
 Predicate<String> containsLetterA = p -> p.contains("A"); 

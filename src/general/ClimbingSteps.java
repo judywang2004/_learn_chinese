@@ -1,6 +1,7 @@
 package general;
 
-//here are n stairs, a person standing at the bottom wants to reach the top. The person can climb either 1 stair or 2 stairs at a time. Count the number of ways, the person can reach the top.
+//here are n stairs, a person standing at the bottom wants to reach the top.
+// The person can climb either 1 stair or 2 stairs at a time. Count the number of ways, the person can reach the top.
 /**
 more Examples:
 
@@ -16,7 +17,10 @@ Input: n = 4
 Output: 5
 (1, 1, 1, 1), (1, 1, 2), (2, 1, 1), (1, 2, 1), (2, 2)
 
-We can easily find recursive nature in above problem. The person can reach n¡¯th stair from either (n-1)¡¯th stair or from (n-2)¡¯th stair. Let the total number of ways to reach n¡¯t stair be ¡®ways(n)¡¯. The value of ¡®ways(n)¡¯ can be written as following.
+We can easily find recursive nature in above problem. 
+The person can reach nï¿½ï¿½th stair from either (n-1)ï¿½ï¿½th stair 
+or from (n-2)ï¿½ï¿½th stair. 
+Let the total number of ways to reach nï¿½ï¿½t stair be ï¿½ï¿½ways(n)ï¿½ï¿½. The value of ï¿½ï¿½ways(n)ï¿½ï¿½ can be written as following.
 
     ways(n) = ways(n-1) + ways(n-2)
 
@@ -57,7 +61,7 @@ public class ClimbingSteps {
     public static void main (String args[])
     {
           int s = 4;
-          System.out.println("Number of ways = "+ countWays(s));
+          System.out.println("Number of ways1 = "+ countWays(s));
     }
 
 }
@@ -86,6 +90,6 @@ class stairs2
     public static void main (String args[])
     {
           int s = 4,m = 2;
-          System.out.println("Number of ways = "+ countWays(s,m));
+          System.out.println("Number of ways2 = "+ countWays(s,m));
     }
 }
