@@ -7,8 +7,8 @@ public class BalancedParenthesis {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-//		String s = "I am sick today(:()";
-		String s="(:)";
+		String s = "I am sick today(:()";
+	//	String s="(:)";
 		Stack<String> stack = new Stack<String>();
 		
 		s = s.replace(":)", "H");
@@ -23,7 +23,7 @@ public class BalancedParenthesis {
 				if(str.equals("(" ))
 					stack.push(str);
 				else if(str.equals(")")){
-					System.out.println("peek = "+stack.peek());
+					// System.out.println("peek = "+stack.peek());
 					if(stack.isEmpty())
 						System.out.println("NO1");
 					

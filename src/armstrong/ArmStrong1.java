@@ -41,11 +41,7 @@ while(tmp!=0){
 }
 if (original==sum)
    System.out.println("armstrong");
-
-
-
-	}
-	
+}
 	static int power(int n,int r){
 		int c,p=1;
 		for(c=1;c<=r;c++){
